@@ -1,23 +1,31 @@
 const express = require("express");
 const app = express();
 
-// middleware
-app.use(express.json());
+const PORT = process.env.PORT || 3000;
 
-// test route
+// Test route
 app.get("/", (req, res) => {
-  res.send("THOS Backend Running 🔥");
+  res.send("THOS Backend Running 🚀");
 });
 
-// sample API (future reviews کیلئے base)
-app.get("/api/test", (req, res) => {
-  res.json({ message: "API Working ✅" });
+// Reels API (future use)
+app.get("/reels", (req, res) => {
+  res.json([
+    {
+      id: 1,
+      title: "Sample Reel 1",
+      videoUrl: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      likes: 120
+    },
+    {
+      id: 2,
+      title: "Sample Reel 2",
+      videoUrl: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      likes: 95
+    }
+  ]);
 });
 
-// port
-const PORT = process.env.PORT || 10000;
-
-// server start
 app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
+  console.log(`Server running on port ${PORT}`);
 });
