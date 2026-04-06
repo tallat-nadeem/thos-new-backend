@@ -1,14 +1,12 @@
 const express = require("express");
-const app = express();
 
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Test route
 app.get("/", (req, res) => {
   res.send("THOS Backend Running 🚀");
 });
 
-// Reels API (future use)
 app.get("/reels", (req, res) => {
   res.json([
     {
